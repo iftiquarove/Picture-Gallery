@@ -54,4 +54,17 @@ class Utility: NSObject{
         
         return ret
     }
+    
+    //MARK: - Alert Related
+    public class func showAlert(_ VC: UIViewController, _ title: String, _ message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+            case .default: print("default")
+            case .cancel: print("cancel")
+            case .destructive: print("destructive")
+            default: break
+            }}))
+        VC.present(alert, animated: true, completion: nil)
+    }
 }
