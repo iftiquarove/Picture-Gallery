@@ -9,7 +9,7 @@ import Foundation
 import SystemConfiguration
 import UIKit
 
-class Utlity: NSObject{
+class Utility: NSObject{
     
     //MARK: - Height/Width related
     public class func convertHeightMultiplier(constant : CGFloat) -> CGFloat{
