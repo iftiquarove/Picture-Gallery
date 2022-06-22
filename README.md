@@ -1,4 +1,7 @@
 # Picture-Gallery
+
+***Podfile Added. please run pod install command from project directory in terminal***
+
 # Features: 
 1. show image
 2. save image
