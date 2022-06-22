@@ -26,6 +26,8 @@
 		BCC2BD772862E6B7001F5549 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCC2BD722862E6B7001F5549 /* Rubik-SemiBold.ttf */; };
 		BCC2BD782862E6B7001F5549 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCC2BD732862E6B7001F5549 /* Rubik-Regular.ttf */; };
 		BCC2BD7A2862FB72001F5549 /* ZoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD792862FB72001F5549 /* ZoomVC.swift */; };
+		BCC2BD7E28630A42001F5549 /* PreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD7D28630A42001F5549 /* PreviewVC.swift */; };
+		BCC2BD8028630B59001F5549 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD7F28630B59001F5549 /* ImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		BCC2BD722862E6B7001F5549 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		BCC2BD732862E6B7001F5549 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		BCC2BD792862FB72001F5549 /* ZoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomVC.swift; sourceTree = "<group>"; };
+		BCC2BD7D28630A42001F5549 /* PreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVC.swift; sourceTree = "<group>"; };
+		BCC2BD7F28630B59001F5549 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		CB147CCD7D33A18553472D69 /* Pods-Picture Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picture Gallery.release.xcconfig"; path = "Target Support Files/Pods-Picture Gallery/Pods-Picture Gallery.release.xcconfig"; sourceTree = "<group>"; };
 		F84032EEF5F00B1966B12848 /* Pods_Picture_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Picture_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				BCC2BD6B2862DBFB001F5549 /* Photo.swift */,
+				BCC2BD7F28630B59001F5549 /* ImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			children = (
 				BCC2BD462862D655001F5549 /* ViewController.swift */,
 				BCC2BD792862FB72001F5549 /* ZoomVC.swift */,
+				BCC2BD7D28630A42001F5549 /* PreviewVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -340,7 +346,9 @@
 				BCC2BD472862D655001F5549 /* ViewController.swift in Sources */,
 				BCC2BD5F2862D6C1001F5549 /* PhotosHolderView.swift in Sources */,
 				BCC2BD432862D655001F5549 /* AppDelegate.swift in Sources */,
+				BCC2BD7E28630A42001F5549 /* PreviewVC.swift in Sources */,
 				BCC2BD452862D655001F5549 /* SceneDelegate.swift in Sources */,
+				BCC2BD8028630B59001F5549 /* ImageModel.swift in Sources */,
 				BCC2BD682862DAB8001F5549 /* API.swift in Sources */,
 				BCC2BD6C2862DBFB001F5549 /* Photo.swift in Sources */,
 				BCC2BD6A2862DB7A001F5549 /* Constants.swift in Sources */,
