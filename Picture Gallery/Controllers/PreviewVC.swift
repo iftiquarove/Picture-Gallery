@@ -52,6 +52,13 @@ class PreviewVC: UIViewController {
         return btn
     }()
     
+    lazy var shareButton: UIButton = {
+        let btn = UIButton()
+        btn.setBackgroundImage(UIImage(named: "share"), for: .normal)
+        btn.addTarget(self, action: #selector(shareButtonTapped(_:)), for: .touchUpInside)
+        return btn
+    }()
+    
     
     //MARK: - Initializers
     override func viewDidLoad() {
@@ -69,6 +76,9 @@ class PreviewVC: UIViewController {
         self.view.backgroundColor = .black
         view.addSubview(BackButton)
         BackButton.anchor(top: view.topAnchor, left: view.leftAnchor, paddingTop: Utility.convertHeightMultiplier(constant: 70), paddingLeft: 10, width: 50, height: 20)
+        
+        view.addSubview(shareButton)
+        shareButton.anchor(top: view.topAnchor, right: view.rightAnchor, paddingTop: Utility.convertHeightMultiplier(constant: 70), paddingRight: 10, width: 20, height: 20)
         
         view.addSubview(imageView)
         imageView.anchor(centerX: view.centerXAnchor ,centerY: view.centerYAnchor, xConstant: 0, yConstant: Utility.convertHeightMultiplier(constant: -40))
@@ -121,5 +131,23 @@ class PreviewVC: UIViewController {
             return
         }
         UIImageWriteToSavedPhotosAlbum(image , self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        guard let image = imageView.image else {
+            showToast(message: "Wait To load The image first!")
+            return
+        }
+        
+        // set up activity view controller
+        let imageToShare = [image]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
