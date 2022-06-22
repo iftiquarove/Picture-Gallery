@@ -99,6 +99,15 @@ class PreviewVC: UIViewController {
         SaveButton.anchor(top: imageView.bottomAnchor, centerX: view.centerXAnchor, paddingTop: Utility.convertHeightMultiplier(constant: 50) ,width: Utility.convertHeightMultiplier(constant: 120), height: Utility.convertHeightMultiplier(constant: 50))
     }
     
+    // Write to Gallery helper Function
+        @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+            if error != nil {
+                Utility.showAlert(self, "Error!", "Something went wrong, please try again!")
+            } else {
+                Utility.showAlert(self, "Saved", "Succesfully saved in your gallery!")
+            }
+        }
+
     
     //MARK: - Button Actions
     
@@ -107,6 +116,10 @@ class PreviewVC: UIViewController {
     }
     
     @IBAction @objc func saveButtonTapped(_ sender: UIButton){
-
+        guard let image = imageView.image else {
+            showToast(message: "Wait To load The image first!")
+            return
+        }
+        UIImageWriteToSavedPhotosAlbum(image , self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
 }
