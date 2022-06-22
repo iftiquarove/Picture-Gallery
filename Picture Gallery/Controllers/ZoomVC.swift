@@ -38,7 +38,7 @@ class SelectViewControllerZoomed: UIViewController {
         if imageURL != nil{
             view.addSubview(imageToZoom)
             imageToZoom.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-            imageToZoom.loadImageUsingCache(withUrl: imageURL)
+            imageToZoom.loadImageUsingCache(withUrl: imageURL, placeHolder: false)
         }
     }
 }

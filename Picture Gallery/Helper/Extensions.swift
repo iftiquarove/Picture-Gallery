@@ -48,15 +48,51 @@ extension UIView{
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
+    
+    func setAspectRatio(_ ratio: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: self, attribute: .width, multiplier: ratio, constant: 0)
+    }
+}
+
+//MARK: - UIViewController Extensions
+extension UIViewController{
+    func showToast(message : String, font: UIFont = UIFont(name: RUBIK_MEDIUM, size: Utility.convertWidthMultiplier(constant: 15))!) {
+        DispatchQueue.main.async {
+            let toastLabel = UILabel()
+            self.view.addSubview(toastLabel)
+            toastLabel.font = font
+            toastLabel.backgroundColor = UIColor(hexString: "#323D5D")
+            toastLabel.text = message
+            toastLabel.textAlignment = .center
+            toastLabel.textColor = .white
+            toastLabel.sizeToFit()
+            
+            toastLabel.translatesAutoresizingMaskIntoConstraints = false
+            toastLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            toastLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
+            toastLabel.widthAnchor.constraint(equalToConstant: toastLabel.frame.width + 20).isActive = true
+            toastLabel.heightAnchor.constraint(equalToConstant: toastLabel.frame.height + 20).isActive = true
+            toastLabel.layer.cornerRadius = Utility.convertHeightMultiplier(constant: 12)
+            toastLabel.clipsToBounds = true
+            
+            UIView.animate(withDuration: 3.0, delay: 0.1, options: .curveEaseOut, animations: {
+                toastLabel.alpha = 0.0
+            }, completion: {(isCompleted) in
+                toastLabel.removeFromSuperview()
+            })
+        }
+    }
 }
 
 //MARK: - UIImageView Extensions
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
-    func loadImageUsingCache(withUrl urlString : String) {
+    func loadImageUsingCache(withUrl urlString : String, placeHolder: Bool) {
         let url = URL(string: urlString)
         if url == nil {return}
-        self.image = #imageLiteral(resourceName: "placeholder")
+        if placeHolder{
+            self.image = #imageLiteral(resourceName: "placeholder")
+        }
         
         // check cached image
         if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
@@ -80,6 +116,7 @@ extension UIImageView {
                 if let image = UIImage(data: data!) {
                     imageCache.setObject(image, forKey: urlString as NSString)
                     self.image = image
+                    activityIndicator.stopAnimating()
                     activityIndicator.removeFromSuperview()
                 }
             }
@@ -109,3 +146,32 @@ extension UIColor {
     }
 }
 
+
+//MARK: - ************ UINavigationController related ************
+extension UINavigationController: UIGestureRecognizerDelegate {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self
+        self.navigationBar.isHidden = true
+        self.navigationBar.barStyle = .black
+    }
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
+}
+
+//MARK: - ************ Constrainst related ************
+extension NSLayoutConstraint {
+     func setMultiplier(_ multiplier: CGFloat, of constraint: inout NSLayoutConstraint) {
+        NSLayoutConstraint.deactivate([constraint])
+
+         let newConstraint = NSLayoutConstraint(item: constraint.firstItem!, attribute: constraint.firstAttribute, relatedBy: constraint.relation, toItem: constraint.secondItem, attribute: constraint.secondAttribute, multiplier: multiplier, constant: constraint.constant)
+
+        newConstraint.priority = constraint.priority
+        newConstraint.shouldBeArchived = constraint.shouldBeArchived
+        newConstraint.identifier = constraint.identifier
+
+        NSLayoutConstraint.activate([newConstraint])
+        constraint = newConstraint
+    }
+}

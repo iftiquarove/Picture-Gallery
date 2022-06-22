@@ -79,6 +79,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("image Tapped of : ",indexPath.row)
         let vc = PreviewVC()
+        vc.ratio = imageModel[indexPath.row].ratio
+        vc.imageURL = imageModel[indexPath.row].previewImageUrl
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
