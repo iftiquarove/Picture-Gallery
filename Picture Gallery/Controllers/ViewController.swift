@@ -79,4 +79,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             parseAPI(with: page)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: {[self] () -> UIViewController? in
+            let vc = SelectViewControllerZoomed()
+            vc.imageURL = previewImageUrls[indexPath.row]
+            vc.preferredContentSize = vc.imageToZoom.image?.size ?? CGSize(width: 500, height: 500)
+            return vc
+        })
+    }
 }
