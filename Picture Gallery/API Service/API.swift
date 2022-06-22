@@ -37,9 +37,9 @@ class PhotoWebServices {
     ///   - success: completion with expected params
     func getPhotosByPage(page: Int, success: @escaping(_ status: Int, _ photoElement: Photo?, _ error: String?)-> Void){
         let headers: HTTPHeaders = [API_HEADER_KEY : API_HEADER_VALUE]
-        let params: Parameters = [ "page": page, "per_page": 10]
+        let params: Parameters = [ "page": page, "per_page": 30]
         
-        if !Utlity.isConnectedToNetwork(){
+        if !Utility.isConnectedToNetwork(){
             success(400,nil,"Please Check your network connection")
         }
         
