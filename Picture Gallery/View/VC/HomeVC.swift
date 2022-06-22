@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeVC: UIViewController {
     
     //MARK: - Properties
     
@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var page = 1
     lazy var photosHolderView = PhotosHolderView()
     var imageModel = [ImageModel]()
+    let parsingVM = ParsingVM()
 
     //MARK: - Initializers
     override func viewDidLoad() {
@@ -32,40 +33,24 @@ class ViewController: UIViewController {
     }
     
     private func parseAPI(with page : Int){
-        PhotoWebServices.shared.getPhotosByPage(page: page) { status, photoElement, error in
-            switch status{
-            case 200:
-                print("✅ Succesfully parsed page no: ", page)
-                photoElement?.forEach({ [self] attributes in
-                    let thumb = attributes.urls?.thumb ?? ""
-                    let preview = attributes.urls?.regular ?? ""
-                    var ratio: CGFloat = 1.0
-                    //for potrait
-                    if attributes.height ?? 1 > attributes.width ?? 1{
-                    ratio = CGFloat(attributes.width ?? 1) / CGFloat(attributes.height ?? 1)
-                    }
-                    //For landcape
-                    else if attributes.height ?? 1 < attributes.width ?? 1{
-                        ratio = CGFloat(attributes.height ?? 1) / CGFloat(attributes.width ?? 1)
-                    }
-                    let imageProperties = ImageModel(thumbImageUrl: thumb, previewImageUrl: preview, ratio: CGFloat(ratio))
-                    imageModel.append(imageProperties)
-                })
-
-                DispatchQueue.main.async {
-                    self.photosHolderView.photoCollectionView.reloadData()
-                }
-            default:
-                print("❌ parsing Failed for page no: ", page)
-                DispatchQueue.main.async {[self] in
-                    Utility.showAlert(self, "Error", "Something went Wrong!")
-                }
+        parsingVM.parsePhotoByPage(page: page) { [weak self] error, imageModelArray in
+            guard let strongSelf = self else {return}
+            
+            if error != nil{
+                Utility.showAlert(strongSelf, "Error", "Something went Wrong!")
+                return
+            }
+            for each in imageModelArray ?? []{
+                strongSelf.imageModel.append(each)
+            }
+            DispatchQueue.main.async {
+                strongSelf.photosHolderView.photoCollectionView.reloadData()
             }
         }
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageModel.count
     }

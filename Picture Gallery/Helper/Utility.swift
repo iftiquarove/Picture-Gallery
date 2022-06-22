@@ -65,6 +65,8 @@ class Utility: NSObject{
             case .destructive: print("destructive")
             default: break
             }}))
-        VC.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            VC.present(alert, animated: true, completion: nil)
+        }
     }
 }

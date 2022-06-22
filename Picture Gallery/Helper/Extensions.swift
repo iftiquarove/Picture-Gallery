@@ -69,7 +69,7 @@ extension UIViewController{
             
             toastLabel.translatesAutoresizingMaskIntoConstraints = false
             toastLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            toastLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10).isActive = true
+            toastLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30).isActive = true
             toastLabel.widthAnchor.constraint(equalToConstant: toastLabel.frame.width + 20).isActive = true
             toastLabel.heightAnchor.constraint(equalToConstant: toastLabel.frame.height + 20).isActive = true
             toastLabel.layer.cornerRadius = Utility.convertHeightMultiplier(constant: 12)
@@ -103,7 +103,7 @@ extension UIImageView {
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .medium)
         addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        activityIndicator.center = self.center
+        activityIndicator.anchor(centerX: self.centerXAnchor , centerY: self.centerYAnchor ,width: 20, height: 20)
         
         // if not, download image from url
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in

@@ -10,8 +10,7 @@
 		45E3AA90DC0E03943F1BF8DC /* Pods_Picture_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84032EEF5F00B1966B12848 /* Pods_Picture_Gallery.framework */; };
 		BCC2BD432862D655001F5549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD422862D655001F5549 /* AppDelegate.swift */; };
 		BCC2BD452862D655001F5549 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD442862D655001F5549 /* SceneDelegate.swift */; };
-		BCC2BD472862D655001F5549 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD462862D655001F5549 /* ViewController.swift */; };
-		BCC2BD4A2862D655001F5549 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC2BD482862D655001F5549 /* Main.storyboard */; };
+		BCC2BD472862D655001F5549 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD462862D655001F5549 /* HomeVC.swift */; };
 		BCC2BD4C2862D656001F5549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC2BD4B2862D656001F5549 /* Assets.xcassets */; };
 		BCC2BD4F2862D656001F5549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC2BD4D2862D656001F5549 /* LaunchScreen.storyboard */; };
 		BCC2BD5F2862D6C1001F5549 /* PhotosHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD5E2862D6C1001F5549 /* PhotosHolderView.swift */; };
@@ -28,6 +27,8 @@
 		BCC2BD7A2862FB72001F5549 /* ZoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD792862FB72001F5549 /* ZoomVC.swift */; };
 		BCC2BD7E28630A42001F5549 /* PreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD7D28630A42001F5549 /* PreviewVC.swift */; };
 		BCC2BD8028630B59001F5549 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD7F28630B59001F5549 /* ImageModel.swift */; };
+		BCC2BD842863506A001F5549 /* ParsingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC2BD832863506A001F5549 /* ParsingVM.swift */; };
+		BCC2BD8728635CAB001F5549 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC2BD8528635CAB001F5549 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +36,7 @@
 		BCC2BD3F2862D655001F5549 /* Picture Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Picture Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC2BD422862D655001F5549 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC2BD442862D655001F5549 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCC2BD462862D655001F5549 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BCC2BD492862D655001F5549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCC2BD462862D655001F5549 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		BCC2BD4B2862D656001F5549 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCC2BD4E2862D656001F5549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC2BD502862D656001F5549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +54,8 @@
 		BCC2BD792862FB72001F5549 /* ZoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomVC.swift; sourceTree = "<group>"; };
 		BCC2BD7D28630A42001F5549 /* PreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVC.swift; sourceTree = "<group>"; };
 		BCC2BD7F28630B59001F5549 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		BCC2BD832863506A001F5549 /* ParsingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingVM.swift; sourceTree = "<group>"; };
+		BCC2BD8628635CAB001F5549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB147CCD7D33A18553472D69 /* Pods-Picture Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picture Gallery.release.xcconfig"; path = "Target Support Files/Pods-Picture Gallery/Pods-Picture Gallery.release.xcconfig"; sourceTree = "<group>"; };
 		F84032EEF5F00B1966B12848 /* Pods_Picture_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Picture_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,7 +106,7 @@
 				BCC2BD662862DAA7001F5549 /* API Service */,
 				BCC2BD562862D674001F5549 /* Model */,
 				BCC2BD572862D67A001F5549 /* View */,
-				BCC2BD582862D685001F5549 /* Controllers */,
+				BCC2BD8128635042001F5549 /* View-Model */,
 				BCC2BD592862D68E001F5549 /* Helper */,
 				BCC2BD5B2862D69F001F5549 /* Resources */,
 			);
@@ -123,20 +125,11 @@
 		BCC2BD572862D67A001F5549 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BCC2BD822863504F001F5549 /* VC */,
 				BCC2BD5D2862D6B0001F5549 /* Storyboards */,
 				BCC2BD5C2862D6A9001F5549 /* Programatically */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		BCC2BD582862D685001F5549 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				BCC2BD462862D655001F5549 /* ViewController.swift */,
-				BCC2BD792862FB72001F5549 /* ZoomVC.swift */,
-				BCC2BD7D28630A42001F5549 /* PreviewVC.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		BCC2BD592862D68E001F5549 /* Helper */ = {
@@ -178,7 +171,7 @@
 		BCC2BD5D2862D6B0001F5549 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				BCC2BD482862D655001F5549 /* Main.storyboard */,
+				BCC2BD8528635CAB001F5549 /* Main.storyboard */,
 				BCC2BD4D2862D656001F5549 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -210,6 +203,24 @@
 				BCC2BD732862E6B7001F5549 /* Rubik-Regular.ttf */,
 			);
 			path = Rubik;
+			sourceTree = "<group>";
+		};
+		BCC2BD8128635042001F5549 /* View-Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCC2BD832863506A001F5549 /* ParsingVM.swift */,
+			);
+			path = "View-Model";
+			sourceTree = "<group>";
+		};
+		BCC2BD822863504F001F5549 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				BCC2BD462862D655001F5549 /* HomeVC.swift */,
+				BCC2BD792862FB72001F5549 /* ZoomVC.swift */,
+				BCC2BD7D28630A42001F5549 /* PreviewVC.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		FFF7787AC107AB80236BF8C3 /* Pods */ = {
@@ -284,9 +295,9 @@
 				BCC2BD4F2862D656001F5549 /* LaunchScreen.storyboard in Resources */,
 				BCC2BD782862E6B7001F5549 /* Rubik-Regular.ttf in Resources */,
 				BCC2BD742862E6B7001F5549 /* Rubik-Bold.ttf in Resources */,
+				BCC2BD8728635CAB001F5549 /* Main.storyboard in Resources */,
 				BCC2BD762862E6B7001F5549 /* Rubik-Italic.ttf in Resources */,
 				BCC2BD4C2862D656001F5549 /* Assets.xcassets in Resources */,
-				BCC2BD4A2862D655001F5549 /* Main.storyboard in Resources */,
 				BCC2BD752862E6B7001F5549 /* Rubik-Medium.ttf in Resources */,
 				BCC2BD772862E6B7001F5549 /* Rubik-SemiBold.ttf in Resources */,
 			);
@@ -343,9 +354,10 @@
 			files = (
 				BCC2BD612862D6DC001F5549 /* Utility.swift in Sources */,
 				BCC2BD632862D6F1001F5549 /* Extensions.swift in Sources */,
-				BCC2BD472862D655001F5549 /* ViewController.swift in Sources */,
+				BCC2BD472862D655001F5549 /* HomeVC.swift in Sources */,
 				BCC2BD5F2862D6C1001F5549 /* PhotosHolderView.swift in Sources */,
 				BCC2BD432862D655001F5549 /* AppDelegate.swift in Sources */,
+				BCC2BD842863506A001F5549 /* ParsingVM.swift in Sources */,
 				BCC2BD7E28630A42001F5549 /* PreviewVC.swift in Sources */,
 				BCC2BD452862D655001F5549 /* SceneDelegate.swift in Sources */,
 				BCC2BD8028630B59001F5549 /* ImageModel.swift in Sources */,
@@ -359,20 +371,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BCC2BD482862D655001F5549 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCC2BD492862D655001F5549 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BCC2BD4D2862D656001F5549 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BCC2BD4E2862D656001F5549 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BCC2BD8528635CAB001F5549 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCC2BD8628635CAB001F5549 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
